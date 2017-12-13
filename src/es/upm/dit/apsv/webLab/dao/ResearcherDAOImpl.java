@@ -19,92 +19,121 @@ import es.upm.dit.apsv.webLab.model.Researcher;
 public class ResearcherDAOImpl implements ResearcherDAO {
 
 	private static ResearcherDAOImpl instance;
-
-	public ResearcherDAOImpl() {
-		// TODO Auto-generated constructor stub
-	}
-
+	private ResearcherDAOImpl() { }
 	public static ResearcherDAOImpl getInstance() {
-		if (instance == null)
-			instance = new ResearcherDAOImpl();
+		if( null == instance ) instance = new ResearcherDAOImpl();
 		return instance;
 	}
-
+	
 	@Override
-	public Researcher create (Researcher u) {
+	public Researcher create(Researcher r) {
 		Session session = SessionFactoryService.get().openSession();
 		try {
 			session.beginTransaction();
-			session.save(u);
+			session.save(r);
 			session.getTransaction().commit();
-		} catch (Exception e) {
-			throw e;
-		} finally {
+		}finally {
 			session.close();
 		}
-		return u;
+		return r;
 	}
-	
+
 	@Override
-	public Researcher read (String id) {
+	public Researcher read(Researcher r) {
 		Session session = SessionFactoryService.get().openSession();
-		Researcher res = new Researcher();
+		Researcher res = null;
 		try {
-			res = (Researcher) session.createQuery("select r from Researcher r where r.id= :id").setParameter("id", id).uniqueResult();
-			
-		} catch (Exception e) {
-			throw e;
+			res = (Researcher) session
+					.createQuery("select r from Researcher r where r.id= :id")
+					.setParameter("id", r.getId())
+					.uniqueResult();
 		} finally {
 			session.close();
 		}
 		return res;
 	}
-	
-//	@SuppressWarnings({ "deprecation", "unchecked" })
+
 	@Override
-	public List<Researcher> readAll () {
+	public Researcher update(Researcher r) {
 		Session session = SessionFactoryService.get().openSession();
-		List<Researcher> res = new ArrayList<Researcher>();
 		try {
-			res = (List<Researcher>) session.createQuery("FROM Researcher").getResultList(); //createSQLQuery("SELECT * FROM Researcher").list();		
-		} catch (Exception e) {
-			throw e;
+			session.beginTransaction();
+			session.saveOrUpdate(r);
+			session.getTransaction().commit();
+		}  finally {
+			session.close();
+		}
+		return r;
+	}
+
+	@Override
+	public Researcher delete(Researcher r) {
+		Session session = SessionFactoryService.get().openSession();
+		try {
+			session.beginTransaction();
+			session.delete(r);
+			session.getTransaction().commit();
+		}  finally {
+			session.close();
+		}
+		return r;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Researcher> readAll() {
+		Session session = SessionFactoryService.get().openSession();
+		List<Researcher> res = new ArrayList<>();
+		try {
+			res.addAll(session
+					.createQuery("select r from Researcher r")
+					.getResultList());
+		}  finally {
+			session.close();
+		}
+		return res;
+	}
+	@Override
+	public Researcher read(String rId) {
+		Session session = SessionFactoryService.get().openSession();
+		Researcher res = null;
+		try {
+			res = (Researcher) session
+					.createQuery("select r from Researcher r where r.id= :id")
+					.setParameter("id", rId)
+					.uniqueResult();
 		} finally {
 			session.close();
 		}
 		return res;
 	}
 	@Override
-	public Researcher update (Researcher u) {
+	public Researcher readUser(String email, String password) {
 		Session session = SessionFactoryService.get().openSession();
+		Researcher res = null;
 		try {
-			session.beginTransaction();
-			session.saveOrUpdate(u);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			throw e;
-		} finally {
+			res = (Researcher) session
+					.createQuery("select r from Researcher r where r.email= :email and r.password = :password")
+					.setParameter("email", email)
+					.setParameter("password", password)
+					.uniqueResult();
+		}  finally {
 			session.close();
 		}
-		return u;
+		return res;
 	}
-	
 	@Override
-	public Researcher delete (Researcher u) {
+	public Researcher readEmail(String email) {
 		Session session = SessionFactoryService.get().openSession();
+		Researcher res = null;
 		try {
-			session.beginTransaction();
-			session.delete(u);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			throw e;
-		} finally {
+			res = (Researcher) session
+					.createQuery("select r from Researcher r where r.eamil= :email")
+					.setParameter("email", email)
+					.uniqueResult();
+		}  finally {
 			session.close();
 		}
-		return u;
+		return res;
 	}
-	
-	
-
-
 }

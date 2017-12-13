@@ -15,45 +15,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+
 @Entity
 public class Publication implements Serializable {
-	private static final long serialVersionUID = 1L;
-
 	@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
-	private String tittle;
+	private String title;
 	private int citeCount;
+	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Collection<Researcher> authors;
 	
+	public Publication(String id, String title, int citeCount) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.citeCount = citeCount;
+		this.authors = new ArrayList<Researcher> ();
+	}
+	
 	public Publication() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Publication(String id, String tittle, int citeCount) {
 		
-		this.id=id;
-		this.tittle=tittle;
-		this.citeCount=citeCount;
-		this.authors= new ArrayList<>();
-		
-	}
-	
-//	public Publication(String id, String tittle, int citeCount, Collection<Researcher> authors) {
-//		super();
-//		this.id = id;
-//		this.tittle = tittle;
-//		this.citeCount = citeCount;
-//		this.authors = authors;
-//	}
-
-	@Override
-	public String toString() {
-		return "Publication [id=" + id + ", tittle=" + tittle + ", citeCount=" + citeCount + ", collection_researcher="
-				+ authors + ", getId()=" + getId() + ", getTittle()=" + getTittle() + ", getCiteCount()="
-				+ getCiteCount() + ", getCollection_researcher()=" + getAuthors() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 	public String getId() {
@@ -64,12 +46,12 @@ public class Publication implements Serializable {
 		this.id = id;
 	}
 
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public int getCiteCount() {
@@ -84,8 +66,9 @@ public class Publication implements Serializable {
 		return authors;
 	}
 
-	public void setAuthors(Collection<Researcher> authors) {
-		this.authors = authors;
+	@Override
+	public String toString() {
+		return "Publication [id=" + id + ", title=" + title + ", citeCount=" + citeCount + "]";
 	}
-
+	
 }
