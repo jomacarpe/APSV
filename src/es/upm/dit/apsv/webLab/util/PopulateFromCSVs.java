@@ -15,8 +15,8 @@ import es.upm.dit.apsv.webLab.dao.PublicationDAO;
 import es.upm.dit.apsv.webLab.dao.PublicationDAOImpl;
 import es.upm.dit.apsv.webLab.dao.ResearcherDAO;
 import es.upm.dit.apsv.webLab.dao.ResearcherDAOImpl;
-import es.upm.dit.apsv.webLab.dao.model.Publication;
-import es.upm.dit.apsv.webLab.dao.model.Researcher;
+import es.upm.dit.apsv.webLab.model.Publication;
+import es.upm.dit.apsv.webLab.model.Researcher;
 
 public class PopulateFromCSVs {
 
@@ -64,7 +64,7 @@ public class PopulateFromCSVs {
 	
 	
 	public static void main(String[] args) throws Exception {
-//		llenarBBDD();
+		llenarBBDD();
 		
 		final ResearcherDAO daoR = ResearcherDAOImpl.getInstance();
 		Researcher buscado = new Researcher();

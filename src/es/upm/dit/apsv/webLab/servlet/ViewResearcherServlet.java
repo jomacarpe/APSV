@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.apsv.webLab.dao.ResearcherDAO;
 import es.upm.dit.apsv.webLab.dao.ResearcherDAOImpl;
-import es.upm.dit.apsv.webLab.dao.model.Researcher;
+import es.upm.dit.apsv.webLab.model.Researcher;
 
 /**
  * Servlet implementation class ViewResearcherServlet

@@ -5,7 +5,7 @@ package es.upm.dit.apsv.webLab.dao;
 import java.util.Collection;
 import java.util.List;
 
-import es.upm.dit.apsv.webLab.dao.model.Researcher;
+import es.upm.dit.apsv.webLab.model.Researcher;
 
 /**
  * @author josemariacarmonaperez

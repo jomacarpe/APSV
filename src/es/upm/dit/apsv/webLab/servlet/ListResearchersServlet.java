@@ -15,8 +15,8 @@ import es.upm.dit.apsv.webLab.dao.PublicationDAO;
 import es.upm.dit.apsv.webLab.dao.PublicationDAOImpl;
 import es.upm.dit.apsv.webLab.dao.ResearcherDAO;
 import es.upm.dit.apsv.webLab.dao.ResearcherDAOImpl;
-import es.upm.dit.apsv.webLab.dao.model.Publication;
-import es.upm.dit.apsv.webLab.dao.model.Researcher;
+import es.upm.dit.apsv.webLab.model.Publication;
+import es.upm.dit.apsv.webLab.model.Researcher;
 
 /**
  * Servlet implementation class ListResearcherServlet

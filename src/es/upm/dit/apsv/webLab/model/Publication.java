@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.upm.dit.apsv.webLab.dao.model;
+package es.upm.dit.apsv.webLab.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

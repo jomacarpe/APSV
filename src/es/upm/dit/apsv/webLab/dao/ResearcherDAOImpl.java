@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import es.upm.dit.apsv.webLab.dao.model.Publication;
-import es.upm.dit.apsv.webLab.dao.model.Researcher;
+import es.upm.dit.apsv.webLab.model.Publication;
+import es.upm.dit.apsv.webLab.model.Researcher;
 
 /**
  * @author josemariacarmonaperez

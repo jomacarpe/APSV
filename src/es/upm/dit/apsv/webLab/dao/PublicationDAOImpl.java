@@ -5,7 +5,7 @@ package es.upm.dit.apsv.webLab.dao;
 
 import org.hibernate.Session;
 
-import es.upm.dit.apsv.webLab.dao.model.*;
+import es.upm.dit.apsv.webLab.model.*;
 
 /**
  * @author josemariacarmonaperez

@@ -3,7 +3,7 @@
  */
 package es.upm.dit.apsv.webLab.dao;
 
-import es.upm.dit.apsv.webLab.dao.model.Publication;
+import es.upm.dit.apsv.webLab.model.Publication;
 
 /**
  * @author josemariacarmonaperez

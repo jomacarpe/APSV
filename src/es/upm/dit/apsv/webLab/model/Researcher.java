@@ -1,4 +1,4 @@
-package es.upm.dit.apsv.webLab.dao.model;
+package es.upm.dit.apsv.webLab.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -106,15 +106,4 @@ public class Researcher implements Serializable {
 	public void setPubs(Collection<Publication> pubs) {
 		this.pubs = pubs;
 	}
-
-	
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
